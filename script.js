@@ -121,26 +121,7 @@ if(loginForm){
   });
 }
 
-// ===============================
-// SOCIAL LOGIN DEMO
-// ===============================
-const socialButtons = document.querySelectorAll(".social");
 
-socialButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    let provider = btn.title;
-    localStorage.setItem("loggedIn", "true");
-    localStorage.setItem("username", provider + "_user");
-
-    const status = document.getElementById("loginStatus");
-    status.textContent = `Login successful via ${provider}! Redirecting...`;
-    status.style.color = "green";
-
-    setTimeout(() => {
-      location.hash = "#home";
-    }, 800);
-  });
-});
 
 // ===============================
 // PROTECT CONVERSATION PAGE
