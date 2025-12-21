@@ -1,4 +1,6 @@
-// ===== SPA NAV (switch sections) =====
+// ===============================
+// SPA NAVIGATION
+// ===============================
 const links = Array.from(document.querySelectorAll("[data-link]"));
 const pages = Array.from(document.querySelectorAll("section[data-page]"));
 const nav = document.getElementById("nav");
@@ -7,7 +9,7 @@ const navToggle = document.getElementById("navToggle");
 function setActivePage(pageId){
   pages.forEach(s => s.classList.toggle("active", s.dataset.page === pageId));
   links.forEach(a => a.classList.toggle("active", a.dataset.link === pageId));
-  nav.classList.remove("open"); // close mobile menu
+  nav.classList.remove("open");
 }
 
 function pageFromHash(){
@@ -26,16 +28,21 @@ links.forEach(a => {
 });
 
 navToggle.addEventListener("click", () => nav.classList.toggle("open"));
-
 setActivePage(pageFromHash());
 
-// HOME button: go to destination page
+// ===============================
+// HOME BUTTON
+// ===============================
 const planBtn = document.getElementById("planTripBtn");
 if(planBtn){
-  planBtn.addEventListener("click", () => { location.hash = "#destination"; });
+  planBtn.addEventListener("click", () => {
+    location.hash = "#destination";
+  });
 }
 
-// ===== DESTINATIONS (filter demo) =====
+// ===============================
+// DESTINATION FILTER
+// ===============================
 const destinations = [
   { name: "Pulau Tioman", tags: ["island","family"], img: "assets/dest-tioman.jpg" },
   { name: "Sipadan", tags: ["diving"], img: "assets/dest-sipadan.jpeg" },
@@ -45,29 +52,25 @@ const destinations = [
   { name: "Mabul", tags: ["diving","eco"], img: "assets/dest-sipadan.jpeg" }
 ];
 
-
 const destGrid = document.getElementById("destGrid");
 const filterWrap = document.getElementById("filters");
 
 function renderDestinations(filter){
   if(!destGrid) return;
-
-  const list = destinations.filter(d => filter === "all" ? true : d.tags.includes(filter));
   destGrid.innerHTML = "";
+
+  const list = destinations.filter(d =>
+    filter === "all" ? true : d.tags.includes(filter)
+  );
 
   list.forEach(d => {
     const card = document.createElement("div");
     card.className = "panel center";
-
     card.innerHTML = `
-  <img class="media-img" src="${d.img}" alt="${d.name}">
-  <div class="muted" style="margin-top:10px;font-size:13px;">${d.name}</div>
-  <div class="muted" style="margin-top:6px;font-size:11px;">
-    ${d.tags.map(t => "#" + t).join(" ")}
-  </div>
-`;
-
-
+      <img class="media-img" src="${d.img}" alt="${d.name}">
+      <div class="muted mt10">${d.name}</div>
+      <div class="muted small mt10">${d.tags.map(t => "#" + t).join(" ")}</div>
+    `;
     destGrid.appendChild(card);
   });
 }
@@ -77,47 +80,108 @@ if(filterWrap){
     const btn = e.target.closest("[data-filter]");
     if(!btn) return;
 
-    const filter = btn.dataset.filter;
-
-    Array.from(filterWrap.querySelectorAll(".pill"))
+    document.querySelectorAll(".pill")
       .forEach(p => p.classList.toggle("active", p === btn));
 
-    renderDestinations(filter);
+    renderDestinations(btn.dataset.filter);
   });
 }
 
 renderDestinations("all");
 
-// ===== FORMS (demo only) =====
+// ===============================
+// LOGIN SYSTEM (DEMO)
+// ===============================
 const loginForm = document.getElementById("loginForm");
+
 if(loginForm){
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const u = document.getElementById("username").value.trim();
-    const p = document.getElementById("password").value.trim();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
     const status = document.getElementById("loginStatus");
-    status.textContent = (u && p)
-      ? "Login demo: success (no backend connected)."
-      : "Please fill in username & password.";
+
+    if(username === "" || password === ""){
+      status.textContent = "Please enter your username and password.";
+      status.style.color = "red";
+      return;
+    }
+
+    // SAVE LOGIN STATUS (DEMO)
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", username);
+
+    status.textContent = "Login successful! Redirecting...";
+    status.style.color = "green";
+
+    setTimeout(() => {
+      location.hash = "#home";
+    }, 800);
   });
 }
 
+// ===============================
+// SOCIAL LOGIN DEMO
+// ===============================
+const socialButtons = document.querySelectorAll(".social");
+
+socialButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    let provider = btn.title;
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", provider + "_user");
+
+    const status = document.getElementById("loginStatus");
+    status.textContent = `Login successful via ${provider}! Redirecting...`;
+    status.style.color = "green";
+
+    setTimeout(() => {
+      location.hash = "#home";
+    }, 800);
+  });
+});
+
+// ===============================
+// PROTECT CONVERSATION PAGE
+// ===============================
+const postForm = document.getElementById("postForm");
+
+if(postForm){
+  postForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if(!localStorage.getItem("loggedIn")){
+      document.getElementById("postStatus").textContent =
+        "Please login first to post.";
+      return;
+    }
+
+    document.getElementById("postStatus").textContent =
+      "Post sent successfully (demo).";
+    e.target.reset();
+  });
+}
+
+// ===============================
+// CONTACT FORM
+// ===============================
 const contactForm = document.getElementById("contactForm");
+
 if(contactForm){
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     document.getElementById("contactStatus").textContent =
-      "Message sent (demo). Thanks for reaching out!";
+      "Message sent successfully. Thank you!";
     e.target.reset();
   });
 }
 
-const postForm = document.getElementById("postForm");
-if(postForm){
-  postForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    document.getElementById("postStatus").textContent =
-      "Posted (demo). You can connect this to a database later.";
-    e.target.reset();
-  });
-}
+// ===============================
+// AUTO LOGIN CHECK
+// ===============================
+window.addEventListener("load", () => {
+  if(localStorage.getItem("loggedIn")){
+    console.log("User logged in:", localStorage.getItem("username"));
+  }
+});
