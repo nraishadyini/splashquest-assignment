@@ -1,0 +1,431 @@
+<!-- =========================
+FULL CODING (index.html)
+Requires: style.css, script.js, and folder /assets with your images
+========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SplashQuest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="logo-img" src="assets/logo.png" alt="SplashQuest logo">
+        <b>SplashQuest</b>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+
+      <nav class="nav" id="nav">
+        <a href="#home" data-link="home" class="active">HOME</a>
+        <a href="#about" data-link="about">ABOUT US</a>
+        <a href="#service" data-link="service">SERVICE</a>
+        <a href="#activities" data-link="activities">ACTIVITIES</a>
+        <a href="#destination" data-link="destination">DESTINATION</a>
+        <a href="#conversation" data-link="conversation">CONVERSATION</a>
+        <a href="#contact" data-link="contact">CONTACT US</a>
+        <a href="#account" data-link="account">ACCOUNT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section data-page="home" class="active">
+      <div class="hero">
+        <div class="hero-left">
+          <!-- If you don't have avatar.png, keep this as logo.png -->
+          <img class="avatar-img" src="assets/logo.png" alt="SplashQuest">
+          <div>
+            <div class="brand-sub">SplashQuest</div>
+          </div>
+        </div>
+
+        <div class="quote">“Explore the wonders beneath the waves”</div>
+
+        <button class="btn" id="planTripBtn">Plan your trip</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="marine-block">
+            <img class="marine-img" src="assets/marine.jpg" alt="Marine tourism">
+            <div class="marine-text">
+              <h2>MARINE TOURISM</h2>
+              <p class="muted p13 mt12">
+                Discover Malaysia’s top marine destinations, activities, and trip-planning tips in one place.
+                SplashQuest helps you explore beautiful islands and ocean experiences while encouraging responsible tourism.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <b class="caps">Why SplashQuest?</b>
+          <p class="muted p13 mt12">
+            We provide clear destination info, activity recommendations, and travel guidance to help you plan
+            unforgettable marine adventures—from snorkeling and island hopping to conservation tours.
+          </p>
+          <p class="muted p13 mt12">
+            Explore with confidence, respect marine life, and make every journey meaningful.
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="center muted caps small mb12">POPULAR DESTINATION</div>
+
+      <div class="grid-4">
+        <div class="panel center">
+          <img class="media-img square" src="assets/dest-tioman.jpg" alt="Pulau Tioman"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="muted small mt10">Pulau Tioman</div>
+        </div>
+        <div class="panel center">
+          <img class="media-img square" src="assets/dest-sipadan.jpg" alt="Sipadan"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="muted small mt10">Sipadan</div>
+        </div>
+        <div class="panel center">
+          <img class="media-img square" src="assets/dest-langkawi.jpg" alt="Langkawi"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="muted small mt10">Langkawi</div>
+        </div>
+        <div class="panel center">
+          <img class="media-img square" src="assets/dest-redang.jpg" alt="Redang"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="muted small mt10">Redang</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section data-page="about">
+      <div class="divider"></div>
+      <div class="title">ABOUT US</div>
+      <div class="divider"></div>
+
+      <div class="panel">
+        <p class="muted p13">
+          SplashQuest is a marine tourism platform designed to showcase the beauty of Malaysia’s oceans and islands.
+          We provide information on popular destinations, exciting marine activities, and travel guidance to help users
+          plan unforgettable experiences while appreciating and protecting marine life.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panel">
+        <div class="vm-grid">
+          <div>
+            <div class="muted lowercase">vision :</div>
+            <p class="p13 mt10">
+              To become a trusted digital platform that promotes Malaysia’s marine tourism while encouraging awareness
+              and appreciation of marine conservation.
+            </p>
+          </div>
+          <div>
+            <div class="muted lowercase">mission :</div>
+            <p class="p13 mt10">
+              To provide accurate and engaging information about marine destinations and activities, connect users with
+              reliable local services, and inspire responsible travel through user-friendly content.
+            </p>
+          </div>
+          <div>
+            <div class="muted lowercase">objective :</div>
+            <p class="p13 mt10">
+              To educate users about marine tourism opportunities in Malaysia, assist in trip planning, and raise awareness
+              of preserving marine ecosystems for future generations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section data-page="service">
+      <div class="divider"></div>
+      <div class="title">OUR SERVICES</div>
+      <div class="subtitle">
+        We provide a range of services designed to support your marine tourism journey,
+        from planning your trip to connecting with experienced guides and reliable local partners.
+      </div>
+
+      <div class="grid-2">
+        <div class="service-card">
+          <img class="service-img" src="assets/svc-trip.jpg" alt="Trip Planning"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="service-meta">
+            <h3>TRIP PLANNING</h3>
+            <p class="p13 mt10">
+              Get help planning marine trips with destination information, recommended activities, and travel tips
+              tailored to your preferences.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img class="service-img" src="assets/svc-guide.jpg" alt="Activity Guide"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="service-meta">
+            <h3>ACTIVITY GUIDE</h3>
+            <p class="p13 mt10">
+              Access reliable guides for marine activities, including safety tips, equipment recommendations,
+              and the best places to visit.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img class="service-img" src="assets/svc-photo.jpg" alt="Photo"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="service-meta">
+            <h3>PHOTO</h3>
+            <p class="p13 mt10">
+              Capture unforgettable moments with photography services that highlight your marine adventures
+              and scenic island views.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img class="service-img" src="assets/svc-ask.jpg" alt="Ask Us"
+               onerror="this.src='assets/marine.jpg'">
+          <div class="service-meta">
+            <h3>ASK US</h3>
+            <p class="p13 mt10">
+              Need advice? Contact us for helpful responses about destinations, activities, services, and travel preparation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section data-page="activities">
+      <div class="divider"></div>
+      <div class="title">OUR MARINE ACTIVITIES</div>
+
+      <div class="panel mt14 mb20">
+        <p class="muted p13">
+          SplashQuest offers a variety of marine activities that allow visitors to explore the ocean,
+          enjoy island adventures, and participate in conservation efforts. Each activity is designed
+          to provide a memorable experience while promoting respect for marine life and the environment.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="activity">
+          <img class="media-img square" src="assets/act-snorkel.jpg" alt="Snorkeling Adventure"
+               onerror="this.src='assets/marine.jpg'">
+          <div>
+            <b>SNORKELING ADVENTURE</b>
+            <p class="muted p13 mt10">
+              Experience vibrant coral reefs and colorful marine life in shallow, crystal-clear waters suitable
+              for beginners and families.
+            </p>
+          </div>
+        </div>
+
+        <div class="activity">
+          <!-- If you don't have act-islandhop.jpg, keep this but it will fallback to marine.jpg -->
+          <img class="media-img square" src="assets/act-islandhop.jpg" alt="Island Hopping"
+               onerror="this.src='assets/marine.jpg'">
+          <div>
+            <b>ISLAND HOPPING</b>
+            <p class="muted p13 mt10">
+              Discover multiple islands in one trip as you explore hidden beaches, scenic coastlines,
+              and unique island cultures across Malaysia.
+            </p>
+          </div>
+        </div>
+
+        <div class="activity">
+          <img class="media-img square" src="assets/act-scuba.jpg" alt="Scuba Diving"
+               onerror="this.src='assets/marine.jpg'">
+          <div>
+            <b>SCUBA DIVING</b>
+            <p class="muted p13 mt10">
+              Dive deeper to explore underwater ecosystems and diverse marine species guided by experienced professionals.
+            </p>
+          </div>
+        </div>
+
+        <div class="activity">
+          <img class="media-img square" src="assets/act-conservation.jpg" alt="Marine Conservation Tour"
+               onerror="this.src='assets/marine.jpg'">
+          <div>
+            <b>MARINE CONSERVATION TOUR</b>
+            <p class="muted p13 mt10">
+              Join conservation-focused tours that educate visitors on protecting marine ecosystems and promoting sustainability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATION -->
+    <section data-page="destination">
+      <div class="divider"></div>
+      <div class="title t34">EXPLORE MALAYSIA’S STUNNING<br/>MARINE DESTINATION</div>
+
+      <div class="panel mt18">
+        <div class="muted caps small mb10">DESTINATION &amp; CATEGORIES</div>
+
+        <div class="filters" id="filters">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="island">Island</button>
+          <button class="pill" data-filter="diving">Diving</button>
+          <button class="pill" data-filter="family">Family</button>
+          <button class="pill" data-filter="eco">Eco</button>
+        </div>
+
+        <div class="dest-layout">
+          <div class="dest-grid" id="destGrid"></div>
+
+        
+    </section>
+
+    <!-- CONVERSATION -->
+    <section data-page="conversation">
+      <div class="divider"></div>
+      <div class="title t34">CONVERSATION</div>
+      <div class="subtitle">Ask, share and connect with fellow marine enthusiasts</div>
+
+    
+
+        <div class="panel">
+          <div class="row-between mb10">
+            <b class="caps">START NEW CONVERSATION</b>
+          </div>
+
+          <form id="postForm" class="form-card">
+            <div class="field">
+              <label for="topic">Topic</label>
+              <input id="topic" placeholder="e.g. Best snorkel spot in Redang?" required />
+            </div>
+            <div class="field">
+              <label for="content">Message</label>
+              <textarea id="content" placeholder="Share your question or experience..." required></textarea>
+            </div>
+            <button class="btn" type="submit">Post</button>
+            <div id="postStatus" class="muted small mt10"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCOUNT -->
+    <section data-page="account">
+      <div class="divider"></div>
+      <div class="title">WELCOME !</div>
+
+      <div class="account-layout">
+        <img class="account-left-img" src="assets/account-left.jpg" alt="Welcome"
+             onerror="this.src='assets/marine.jpg'">
+
+        <div class="panel panel-grey">
+          <form id="loginForm">
+            <div class="field">
+              <label for="username">USERNAME</label>
+              <input id="username" autocomplete="username" placeholder="Enter username" required />
+            </div>
+            <div class="field">
+              <label for="password">PASSWORD</label>
+              <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
+            </div>
+
+            <button class="btn full" type="submit">Login</button>
+
+            <div class="or-row">
+              <div class="hr"></div>
+              <div class="or">OR</div>
+              <div class="hr"></div>
+            </div>
+
+            <div class="social-row">
+              <button class="social" type="button" title="Google"></button>
+              <button class="social" type="button" title="Facebook"></button>
+              <button class="social" type="button" title="Apple"></button>
+            </div>
+
+            <div id="loginStatus" class="muted small mt12"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section data-page="contact">
+      <div class="divider"></div>
+      <div class="title t40">CONTACT US</div>
+      <div class="subtitle">We’d love to hear from you! Reach out for inquiries, booking or feedback.</div>
+
+      <div class="contact-icons">
+        <div class="icon-card"><div class="icon" aria-hidden="true">📍</div></div>
+        <div class="icon-card"><div class="icon" aria-hidden="true">✉️</div></div>
+        <div class="icon-card"><div class="icon" aria-hidden="true">📞</div></div>
+      </div>
+
+      <div class="panel panel-grey">
+        <form id="contactForm">
+          <div class="field">
+            <label for="name">NAME:</label>
+            <input id="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">EMAIL:</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="message">MESSAGE:</label>
+            <textarea id="message" placeholder="Write your message..." required></textarea>
+          </div>
+          <button class="btn" type="submit">Send</button>
+          <div id="contactStatus" class="muted small mt10"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img class="logo-img small-logo" src="assets/logo.png" alt="SplashQuest logo">
+          <div class="footer-title">SplashQuest</div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-head">Quick Links</div>
+          <div>service<br/>about<br/>contact</div>
+        </div>
+
+<div class="footer-right">
+  <div class="footer-head">contact info</div>
+
+  <div class="contact-mini">
+    <span class="call-icon" aria-hidden="true">📞</span>
+    <a class="contact-link" href="tel:+60123445578">+60123445578</a>
+  </div>
+</div>
+
+
+
+      <div class="footer-bottom">
+        @ 2025 | Marine Tourism Information | Privacy policy
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
