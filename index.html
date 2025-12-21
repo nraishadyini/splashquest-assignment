@@ -325,41 +325,35 @@ Requires: style.css, script.js, and folder /assets with your images
     </section>
 
     <!-- ACCOUNT -->
-    <section data-page="account">
-      <div class="divider"></div>
-      <div class="title">WELCOME !</div>
+    <!-- ACCOUNT -->
+<section data-page="account">
+  <div class="divider"></div>
+  <div class="title">WELCOME !</div>
 
-      <div class="account-layout">
-        <img class="account-left-img" src="assets/account-left.jpg" alt="Welcome"
-             onerror="this.src='assets/marine.jpg'">
+  <div class="account-layout">
+    <img class="account-left-img" src="assets/account-left.png" alt="Welcome"
+         onerror="this.src='assets/account-left.jpg'">
 
-        <div class="panel panel-grey">
-          <form id="loginForm">
-            <div class="field">
-              <label for="username">USERNAME</label>
-              <input id="username" autocomplete="username" placeholder="Enter username" required />
-            </div>
-            <div class="field">
-              <label for="password">PASSWORD</label>
-              <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
-            </div>
-
-            <button class="btn full" type="submit">Login</button>
-
-            <div class="or-row">
-              <div class="hr"></div>
-              <div class="hr"></div>
-            </div>
-
-
-
-
-
-            <div id="loginStatus" class="muted small mt12"></div>
-          </form>
+    <div class="panel panel-grey">
+      <form id="loginForm">
+        <div class="field">
+          <label for="username">USERNAME</label>
+          <input id="username" autocomplete="username" placeholder="Enter username" required />
         </div>
-      </div>
-    </section>
+
+        <div class="field">
+          <label for="password">PASSWORD</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
+        </div>
+
+        <button class="btn full" type="submit">Login</button>
+
+        <div id="loginStatus" class="muted small mt12"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section data-page="contact">
