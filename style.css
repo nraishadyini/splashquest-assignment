@@ -1,10 +1,7 @@
-/* =========================
-FULL CODING (style.css)
-========================= */
 :root{
-  --bg:#ffffff;
+  --bg:#9ec1d8;
   --text:#111;
-  --muted:#666;
+  --muted:#010f17e0;
   --line:#e5e5e5;
   --soft:#f4f4f4;
   --soft2:#ededed;
@@ -562,3 +559,4 @@ section[data-page].active{ display:block; }
   border:1px solid var(--line);
   display:block;
 }
+
