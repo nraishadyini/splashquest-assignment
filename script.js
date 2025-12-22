@@ -90,27 +90,82 @@ if(filterWrap){
 renderDestinations("all");
 
 // ===============================
-// LOGIN SYSTEM (DEMO)
+// LOGIN & REGISTER SYSTEM (DEMO)
 // ===============================
 const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
-if(loginForm){
-  loginForm.addEventListener("submit", (e) => {
+const showRegister = document.getElementById("showRegister");
+const showLogin = document.getElementById("showLogin");
+
+// Toggle forms
+if(showRegister){
+  showRegister.addEventListener("click", e => {
+    e.preventDefault();
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
+  });
+}
+
+if(showLogin){
+  showLogin.addEventListener("click", e => {
+    e.preventDefault();
+    registerForm.style.display = "none";
+    loginForm.style.display = "block";
+  });
+}
+
+// REGISTER
+if(registerForm){
+  registerForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const status = document.getElementById("loginStatus");
+    const u = document.getElementById("regUsername").value.trim();
+    const p = document.getElementById("regPassword").value.trim();
+    const status = document.getElementById("registerStatus");
 
-    if(username === "" || password === ""){
-      status.textContent = "Please enter your username and password.";
+    if(!u || !p){
+      status.textContent = "Please fill all fields.";
       status.style.color = "red";
       return;
     }
 
-    // SAVE LOGIN STATUS (DEMO)
+    localStorage.setItem("user_" + u, p);
+    status.textContent = "Account created successfully! Please login.";
+    status.style.color = "green";
+
+    setTimeout(() => {
+      registerForm.style.display = "none";
+      loginForm.style.display = "block";
+    }, 1000);
+  });
+}
+
+// LOGIN
+if(loginForm){
+  loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const u = document.getElementById("loginUsername").value.trim();
+    const p = document.getElementById("loginPassword").value.trim();
+    const status = document.getElementById("loginStatus");
+
+    const savedPass = localStorage.getItem("user_" + u);
+
+    if(savedPass === null){
+      status.textContent = "Account not found.";
+      status.style.color = "red";
+      return;
+    }
+
+    if(savedPass !== p){
+      status.textContent = "Incorrect password.";
+      status.style.color = "red";
+      return;
+    }
+
     localStorage.setItem("loggedIn", "true");
-    localStorage.setItem("username", username);
+    localStorage.setItem("username", u);
 
     status.textContent = "Login successful! Redirecting...";
     status.style.color = "green";
@@ -120,6 +175,7 @@ if(loginForm){
     }, 800);
   });
 }
+
 
 
 
@@ -166,3 +222,4 @@ window.addEventListener("load", () => {
     console.log("User logged in:", localStorage.getItem("username"));
   }
 });
+
