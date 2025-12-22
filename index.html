@@ -327,31 +327,58 @@
     <!-- ACCOUNT -->
     <!-- ACCOUNT -->
 <section data-page="account">
-  <div class="divider"></div>
-  <div class="title">WELCOME !</div>
+  <div class="panel panel-grey">
 
-  <div class="account-layout">
-    <img class="account-left-img" src="assets/account-left.png" alt="Welcome"
-         onerror="this.src='assets/account-left.jpg'">
+  <!-- LOGIN FORM -->
+  <form id="loginForm">
+    <h3 class="center mb12">Login</h3>
 
-    <div class="panel panel-grey">
-      <form id="loginForm">
-        <div class="field">
-          <label for="username">USERNAME</label>
-          <input id="username" autocomplete="username" placeholder="Enter username" required />
-        </div>
-
-        <div class="field">
-          <label for="password">PASSWORD</label>
-          <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
-        </div>
-
-        <button class="btn full" type="submit">Login</button>
-
-        <div id="loginStatus" class="muted small mt12"></div>
-      </form>
+    <div class="field">
+      <label for="loginUsername">USERNAME</label>
+      <input id="loginUsername" placeholder="Enter username" required />
     </div>
-  </div>
+
+    <div class="field">
+      <label for="loginPassword">PASSWORD</label>
+      <input id="loginPassword" type="password" placeholder="Enter password" required />
+    </div>
+
+    <button class="btn full" type="submit">Login</button>
+
+    <p class="center small mt12">
+      Don’t have an account?
+      <a href="#" id="showRegister">Create account</a>
+    </p>
+
+    <div id="loginStatus" class="muted small mt10"></div>
+  </form>
+
+  <!-- REGISTER FORM -->
+  <form id="registerForm" style="display:none;">
+    <h3 class="center mb12">Create Account</h3>
+
+    <div class="field">
+      <label for="regUsername">USERNAME</label>
+      <input id="regUsername" placeholder="Choose username" required />
+    </div>
+
+    <div class="field">
+      <label for="regPassword">PASSWORD</label>
+      <input id="regPassword" type="password" placeholder="Choose password" required />
+    </div>
+
+    <button class="btn full" type="submit">Create Account</button>
+
+    <p class="center small mt12">
+      Already have an account?
+      <a href="#" id="showLogin">Back to login</a>
+    </p>
+
+    <div id="registerStatus" class="muted small mt10"></div>
+  </form>
+
+</div>
+
 </section>
 
 
