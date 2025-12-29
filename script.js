@@ -1,6 +1,4 @@
-// ===============================
-// SPA NAVIGATION
-// ===============================
+
 const links = Array.from(document.querySelectorAll("[data-link]"));
 const pages = Array.from(document.querySelectorAll("section[data-page]"));
 const nav = document.getElementById("nav");
@@ -41,7 +39,7 @@ if(planBtn){
 }
 
 // ===============================
-// DESTINATION FILTER
+// DESTINATION 
 // ===============================
 const destinations = [
   { name: "Pulau Tioman", tags: ["island","family"], img: "assets/dest-tioman.jpg" },
@@ -90,7 +88,7 @@ if(filterWrap){
 renderDestinations("all");
 
 // ===============================
-// LOGIN & REGISTER SYSTEM (DEMO)
+// LOGIN & REGISTER SYSTEM 
 // ===============================
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
@@ -195,7 +193,7 @@ if(postForm){
     }
 
     document.getElementById("postStatus").textContent =
-      "Post sent successfully (demo).";
+      "Post sent successfully.";
     e.target.reset();
   });
 }
@@ -222,4 +220,5 @@ window.addEventListener("load", () => {
     console.log("User logged in:", localStorage.getItem("username"));
   }
 });
+
 
