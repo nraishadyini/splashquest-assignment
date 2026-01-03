@@ -1,4 +1,6 @@
-
+// ===============================
+// SPA NAVIGATION
+// ===============================
 const links = Array.from(document.querySelectorAll("[data-link]"));
 const pages = Array.from(document.querySelectorAll("section[data-page]"));
 const nav = document.getElementById("nav");
@@ -8,15 +10,15 @@ function setActivePage(pageId){
   pages.forEach(s => s.classList.toggle("active", s.dataset.page === pageId));
   links.forEach(a => a.classList.toggle("active", a.dataset.link === pageId));
   nav.classList.remove("open");
-}
-
+} //Papar 1 halaman sahaja
+ 
 function pageFromHash(){
   const hash = (location.hash || "#home").replace("#","");
   const exists = pages.some(s => s.dataset.page === hash);
   return exists ? hash : "home";
-}
+}// dapatkan page dari URL hash
 
-window.addEventListener("hashchange", () => setActivePage(pageFromHash()));
+window.addEventListener("hashchange", () => setActivePage(pageFromHash()));  //Bila URL berubah (#home → #destination), page terus bertukar
 
 links.forEach(a => {
   a.addEventListener("click", (e) => {
@@ -39,7 +41,7 @@ if(planBtn){
 }
 
 // ===============================
-// DESTINATION 
+// DESTINATION FILTER
 // ===============================
 const destinations = [
   { name: "Pulau Tioman", tags: ["island","family"], img: "assets/dest-tioman.jpg" },
@@ -47,7 +49,8 @@ const destinations = [
   { name: "Langkawi", tags: ["island","family"], img: "assets/dest-langkawi.jpg" },
   { name: "Redang", tags: ["island","eco"], img: "assets/dest-redang.jpg" },
   { name: "Perhentian", tags: ["island","eco"], img: "assets/dest-tioman.jpg" },
-  { name: "Mabul", tags: ["diving","eco"], img: "assets/dest-sipadan.jpeg" }
+  { name: "Mabul", tags: ["diving","eco"], img: "assets/dest-sipadan.jpeg" }  // list destination dan kategori
+
 ];
 
 const destGrid = document.getElementById("destGrid");
@@ -59,7 +62,7 @@ function renderDestinations(filter){
 
   const list = destinations.filter(d =>
     filter === "all" ? true : d.tags.includes(filter)
-  );
+  );  // filter destination berdasarkan kategori
 
   list.forEach(d => {
     const card = document.createElement("div");
@@ -71,7 +74,7 @@ function renderDestinations(filter){
     `;
     destGrid.appendChild(card);
   });
-}
+} // paparkan destination dalam grid
 
 if(filterWrap){
   filterWrap.addEventListener("click", (e) => {
@@ -82,13 +85,13 @@ if(filterWrap){
       .forEach(p => p.classList.toggle("active", p === btn));
 
     renderDestinations(btn.dataset.filter);
-  });
+  }); // handle click pada button filter
 }
 
 renderDestinations("all");
 
 // ===============================
-// LOGIN & REGISTER SYSTEM 
+// LOGIN & REGISTER SYSTEM (DEMO)
 // ===============================
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
@@ -103,7 +106,7 @@ if(showRegister){
     loginForm.style.display = "none";
     registerForm.style.display = "block";
   });
-}
+} // toggle ke register form 
 
 if(showLogin){
   showLogin.addEventListener("click", e => {
@@ -193,7 +196,7 @@ if(postForm){
     }
 
     document.getElementById("postStatus").textContent =
-      "Post sent successfully.";
+      "Post sent successfully (demo).";
     e.target.reset();
   });
 }
@@ -220,5 +223,4 @@ window.addEventListener("load", () => {
     console.log("User logged in:", localStorage.getItem("username"));
   }
 });
-
 
