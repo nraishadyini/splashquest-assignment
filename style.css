@@ -1,5 +1,3 @@
-
-
 :root{
   --bg:#9ec1d8;
   --text:#111;
@@ -573,6 +571,7 @@ section[data-page].active{ display:block; }
   text-decoration:none;
   color:inherit;
 }
+
 
 
 
