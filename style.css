@@ -1,5 +1,4 @@
 
-
 :root{
   --bg:#9ec1d8;
   --text:#111;
@@ -561,6 +560,7 @@ section[data-page].active{ display:block; }
   border:1px solid var(--line);
   display:block;
 }
+
 .brand-link{
   display:flex;
   align-items:center;
@@ -569,5 +569,11 @@ section[data-page].active{ display:block; }
   color:inherit;
 }
 
-
-
+body{
+  margin: 1px;
+  padding: 21px;
+  height: 15px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
