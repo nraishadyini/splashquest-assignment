@@ -1,4 +1,3 @@
-tukarkan colour nav ke biru gelap dan hitam untuk footer
 
 :root{
   --bg:#9ec1d8;
@@ -568,6 +567,7 @@ section[data-page].active{ display:block; }
   text-decoration:none;
   color:inherit;
 }
+
 
 
 
