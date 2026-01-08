@@ -7,10 +7,7 @@
   --soft2:#ededed;
   --max:1100px;
   --radius:14px;
-  --nav-dark:#0b2545;      
-  --nav-dark-2:#163b66;   
-  --footer-black:#0d0d0d; 
-  --footer-text:#cccccc;
+ 
 }
 
 *{ box-sizing:border-box; }
@@ -571,6 +568,7 @@ section[data-page].active{ display:block; }
   text-decoration:none;
   color:inherit;
 }
+
 
 
 
